@@ -22,6 +22,7 @@
 #include "imgui/imgui_impl_opengl3.h"
 
 #include "tests/TestClearColor.h"
+#include "tests/TestTexture2D.h"
 
 int main(void)
 {
@@ -33,7 +34,7 @@ int main(void)
     const char* glsl_version = "#version 130";
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "OpenGL", NULL, NULL);
+    window = glfwCreateWindow(960, 540, "OpenGL", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -69,6 +70,7 @@ int main(void)
         currentTest = testMenu;
 
         testMenu->RegisterTest<test::TestClearColor>("ClearColor");
+        testMenu->RegisterTest<test::TestTexture2D>("2D Texture");
 
         while (!glfwWindowShouldClose(window))
         {
